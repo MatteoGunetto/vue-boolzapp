@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #app{
+      position: relative;
+      display: flex;
+  }
+  
+  .header{
+      width: 100%;
+      height: 150px;
+      background-color: #009688;
+      position: absolute;
+      top: 0;
+  }
+  
+  .main{
+      width: 100%;
+      height: calc(100vh - 150px);
+      background-color: #dadbd4;
+      position: absolute;
+      top: 150px;
+  }
+  
+  .boolzapp{
+      background-color: #ededed;
+      width: 100%;
+      max-width: 1400px;
+      min-height: 900px;
+      margin: 50px auto;
+      z-index: 1000;
+  }
