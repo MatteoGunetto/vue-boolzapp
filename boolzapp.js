@@ -3,7 +3,7 @@ createApp({
   data(){
     return{
       mainUser: 'Sofia',
-      avatar: "./img/avatar_1.png",
+      mainAvatar: "./img/avatar_4.png",
         contacts: [
             {
                 name: 'Michele',

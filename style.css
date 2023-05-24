@@ -114,17 +114,17 @@ section i{
   gap: 30px;
 }
 /* contats */
-.contats {
+.contacts {
   overflow: auto;
 }
-.contat {
+.contact {
   padding: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.contat:hover {
-  background-color: #e8eaea;
+.contact:hover {
+  background-color: #d2d9d9;
 }
 /* MAIN*/
 main{
@@ -133,7 +133,7 @@ main{
 main > #chat {
   height: calc( 100% - 120px);
   overflow: auto;
-  background-color: aquamarine;
+  background-image: url(./img/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
   padding: 40px;
 }
 #chat .message {
