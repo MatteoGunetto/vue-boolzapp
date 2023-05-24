@@ -159,15 +159,16 @@
                 <p class="text_message">{{message.message}}</p>
                 <div class="time">{{message.date}}</div>
               </div>
-              
+
             </section>
             <section id="input_message_chat">
 
                     <i class="fa-regular fa-face-smile"></i>
 
 
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="newText" @keyup.enter="
-                    respond(i)">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newText" @keyup.enter="addItem">
+                  
+          
 
                     <i class="fa-solid fa-microphone"></i>
 

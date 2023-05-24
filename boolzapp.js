@@ -169,6 +169,7 @@ createApp({
                 ],
             }
         ],
+        newText: ''
       }
     },
     methods:{
@@ -176,20 +177,21 @@ createApp({
           this.activeChat = i;
       },
 
-      respond(i) {
-          this.contacts[i].messages.push({
-              date: '10/01/2020 15:30:55',
-                      message: this.newText,
-                      status: 'sent'
-          });
+      addItem: function () {
 
-          setTimeout( () => {
-              this.contacts[i].messages.push({
-                  date: '10/01/2020 15:30:55',
-                          message: 'ok!',
-                          status: 'received'
-              });
-          }, 1000)
+        this.contacts[this.activeChat].messages.push({
+            date: '10/01/2020 15:30:55',
+            text: this.newText,
+            status: 'sent'
+        }),
+        this.newText = ""
+        setTimeout(() => {
+          this.contacts[this.activeChat].messages.push({
+              date: '10/01/2020 15:30:55',
+              newText: 'ok',
+              status: 'recived'
+          })
+      }, 1000);
       }
   }
 
