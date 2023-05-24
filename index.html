@@ -46,7 +46,7 @@
 
           <!-- contat's chats -->
           <div class="contacts">
-              <div class="contact" v-for="contact in contacts">
+              <div class="contact" v-for="(contact, i) in contacts" @click="changeChat(i)">
                   <img :src="contact.avatar" alt="">
                   <div class="name_contacts">
                       <h4>{{contact.name}}</h4>
@@ -135,15 +135,15 @@
             </section>
         </div>
         <!-- MAIN personal chat -->
-        <main v-for="(contact, i) in contacts" :class="( activeChat === i) ? 'active':'hidden'">
+        <main>
           <section id="profil_contat_chat">
       
-              <img :src="contact.avatar" alt="">
+              <img :src="contacts[activeChat].avatar" alt="">
               <div class="name_contacts">
-                  <h3>{{contact.name}}</h3>
+                  <h3>{{contacts[activeChat].name}}</h3>
                   <div class="text_gray">
                       ultimo accesso
-                      <div class="time">{{contact.messages[0].date}}</div>
+                      <div class="time">{{contacts[activeChat].messages[0].date}}</div>
                   </div>
               </div>
                 
@@ -154,43 +154,12 @@
             
             </section>
             <section id="chat">
-              <div  v-for="(message, idx) in contact.messages" :class="(message.status === 'sent') ? 'message sent': 'message received'">
+              <div  v-for="(message, index) in contacts[activeChat].messages" :class="(message.status === 'sent') ? 'message sent': 'message received'">
+                
                 <p class="text_message">{{message.message}}</p>
                 <div class="time">{{message.date}}</div>
               </div>
-
-
-
-
-
-
-                <!-- Box message sent -->
-                <!-- <div class="message sent">
-                    <div class="text_message">test!</div>
-                    <div class="time">12:00</div>
-                </div> -->
-                <!-- Box message received -->
-                <!-- <div class="message received">
-                    <div class="text_message">test!</div>
-                    <div class="time">12:00</div>
-                </div>
-                <div class="message sent">
-                    <div class="text_message">test!</div>
-                    <div class="time">12:00</div>
-                </div> -->
-                <!-- Box message received -->
-                <!-- <div class="message received">
-                    <div class="text_message">test!</div>
-                    <div class="time">12:00</div>
-                </div>
-                <div class="message sent">
-                    <div class="text_message">test!</div>
-                    <div class="time">12:00</div>
-                </div>
-                <div class="message sent">
-                    <div class="text_message">test!</div>
-                    <div class="time">12:00</div>-->
-
+              
             </section>
             <section id="input_message_chat">
 
