@@ -2,6 +2,7 @@ const { createApp } = Vue;
 createApp({
   data(){
     return{
+      activeChat: 0,
       mainUser: 'Sofia',
       mainAvatar: "./img/avatar_4.png",
         contacts: [
@@ -167,6 +168,28 @@ createApp({
                 ],
             }
         ],
-    }
-}
-}).mount('#app');
+      }
+    },
+    methods:{
+      changeChat(i){
+          this.activeChat = i;
+      },
+
+      respond(i) {
+          this.contacts[i].messages.push({
+              date: '10/01/2020 15:30:55',
+                      message: this.newText,
+                      status: 'sent'
+          });
+
+          setTimeout( () => {
+              this.contacts[i].messages.push({
+                  date: '10/01/2020 15:30:55',
+                          message: 'ok!',
+                          status: 'received'
+              });
+          }, 1000)
+      }
+  }
+
+}).mount('#app')

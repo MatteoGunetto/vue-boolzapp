@@ -135,17 +135,17 @@
             </section>
         </div>
         <!-- MAIN personal chat -->
-        <main>
-            <section id="profil_contat_chat">
-     
-                <img src="img/avatar_1.png" alt="">
-                <div class="name_contacts">
-                    <h3>Michele</h3>
-                    <div class="text_gray">
-                        ultimo accesso alle 
-                        <div class="time">12:00</div>
-                    </div>
-                </div>
+        <main v-for="(contact, i) in contacts" :class="( activeChat === i) ? 'active':'hidden'">
+          <section id="profil_contat_chat">
+      
+              <img :src="contact.avatar" alt="">
+              <div class="name_contacts">
+                  <h3>{{contact.name}}</h3>
+                  <div class="text_gray">
+                      ultimo accesso
+                      <div class="time">{{contact.messages[0].date}}</div>
+                  </div>
+              </div>
                 
                 
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -154,22 +154,32 @@
             
             </section>
             <section id="chat">
+              <div  v-for="(message, idx) in contact.messages" :class="(message.status === 'sent') ? 'message sent': 'message received'">
+                <p class="text_message">{{message.message}}</p>
+                <div class="time">{{message.date}}</div>
+              </div>
+
+
+
+
+
+
                 <!-- Box message sent -->
-                <div class="message sent">
+                <!-- <div class="message sent">
                     <div class="text_message">test!</div>
                     <div class="time">12:00</div>
-                </div>
+                </div> -->
                 <!-- Box message received -->
-                <div class="message received">
+                <!-- <div class="message received">
                     <div class="text_message">test!</div>
                     <div class="time">12:00</div>
                 </div>
                 <div class="message sent">
                     <div class="text_message">test!</div>
                     <div class="time">12:00</div>
-                </div>
+                </div> -->
                 <!-- Box message received -->
-                <div class="message received">
+                <!-- <div class="message received">
                     <div class="text_message">test!</div>
                     <div class="time">12:00</div>
                 </div>
@@ -179,8 +189,7 @@
                 </div>
                 <div class="message sent">
                     <div class="text_message">test!</div>
-                    <div class="time">12:00</div>
-                </div>
+                    <div class="time">12:00</div>-->
 
             </section>
             <section id="input_message_chat">
@@ -188,7 +197,8 @@
                     <i class="fa-regular fa-face-smile"></i>
 
 
-                <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newText" @keyup.enter="
+                    respond(i)">
 
                     <i class="fa-solid fa-microphone"></i>
 
