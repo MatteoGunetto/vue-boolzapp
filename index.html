@@ -10,14 +10,15 @@
     <title>Boolzapp</title>
   </head>
   <body>
+
     <div id="background_green"></div>
-    <div id="window_container">
+    <div id="app">
         <!-- contats -->
         <div id="side_bar">
             <!-- personal profile -->
             <section id="personal_profile">
-                <img src="img/avatar_4.png" alt="">
-                <h3 class="name_contacts">Sofia</h3>
+                <img :src="avatar" alt="">
+                <h3 class="name_contacts">{{mainUser}}</h3>
                 
                 <i class="fa-solid fa-circle-notch"></i>
                 <i class="fa-solid fa-message"></i>
@@ -35,28 +36,102 @@
                 </div>
                              
             </section>
-            <!-- contat's chats -->
-            <section id="chats">
-                
-                <div id="search_contats_chat">
-                    <div id="my_search_input">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Cerca o inzia una nuova Chat">
-                    </div>
-                     
-                </div>
-                
-                <div id="contats">
-                    <div id="contat">
-                        <img src="img/avatar_2.png" alt="">
-                        <div class="name_contacts">
-                            <h4>Michele</h4>
-                            <small class="text_gray">Ultimo mess...</small>
-                        </div>
-                        <div class="time">12:00</div>
-                    </div>
+            <div id="search_contats_chat">
+              <div id="my_search_input">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" placeholder="Cerca o inzia una nuova Chat">
+              </div>
+
+          </div>
+
+          <!-- contat's chats -->
+          <div class="contacts">
+              <div class="conctat" v-for="conctat in contacts">
+                  <img :src="conctat.avatar" alt="">
+                  <div class="name_contacts">
+                      <h4>{{conctat.name}}</h4>
+                      <small class="text_gray">Ultimo messaggio inviato</small>
+                  </div>
+                  <div class="time">12:00</div>
+              </div>
+
+
                     
+                <!-- </div>
+                <div class="contats">
+                  <div class="contat">
+                      <img src="img/avatar_2.png" alt="">
+                      <div class="name_contacts">
+                          <h4>Fabio</h4>
+                          <small class="text_gray">Ultimo messaggio</small>
+                      </div>
+                      <div class="time">12:00</div>
+                  </div>
+                  
+              </div>
+              <div class="contats">
+                <div class="contat">
+                    <img src="img/avatar_5.png" alt="">
+                    <div class="name_contacts">
+                        <h4>Samuele</h4>
+                        <small class="text_gray">Ultimo messaggio</small>
+                    </div>
+                    <div class="time">12:00</div>
                 </div>
+                
+            </div>
+            <div class="contats">
+              <div class="contat">
+                  <img src="img/avatar_6.png" alt="">
+                  <div class="name_contacts">
+                      <h4>Alessandro B.</h4>
+                      <small class="text_gray">Ultimo messaggio</small>
+                  </div>
+                  <div class="time">12:00</div>
+              </div>
+              
+          </div>
+          <div class="contats">
+            <div class="contat">
+                <img src="img/avatar_7.png" alt="">
+                <div class="name_contacts">
+                    <h4>Alessandro L.</h4>
+                    <small class="text_gray">Ultimo messaggio</small>
+                </div>
+                <div class="time">12:00</div>
+            </div>
+            
+        </div>
+        <div class="contats">
+          <div class="contat">
+              <img src="img/avatar_3.png" alt="">
+              <div class="name_contacts">
+                  <h4>Claudia</h4>
+                  <small class="text_gray">Ultimo messaggio</small>
+              </div>
+              <div class="time">12:00</div>
+          </div>
+          <div class="contats">
+            <div class="contat">
+                <img src="img/avatar_7.png" alt="">
+                <div class="name_contacts">
+                    <h4>Federico</h4>
+                    <small class="text_gray">Ultimo messaggio</small>
+                </div>
+                <div class="time">12:00</div>
+            </div>
+            <div class="contats">
+              <div class="contat">
+                  <img src="img/avatar_8.png" alt="">
+                  <div class="name_contacts">
+                      <h4>Davide</h4>
+                      <small class="text_gray">Ultimo messaggio</small>
+                  </div>
+                  <div class="time">12:00</div>
+              </div> -->
+
+          
+      </div>
             </section>
         </div>
         <!-- MAIN personal chat -->

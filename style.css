@@ -38,7 +38,7 @@ input {
   align-self: flex-start;
 }
 /* window_container */
-#window_container {
+#app {
   position: fixed;
   top: 20px;
   left: 10%;
@@ -114,16 +114,16 @@ section i{
   gap: 30px;
 }
 /* contats */
-#contats {
+.contats {
   overflow: auto;
 }
-#contat {
+.contat {
   padding: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-#contat:hover {
+.contat:hover {
   background-color: #e8eaea;
 }
 /* MAIN*/
