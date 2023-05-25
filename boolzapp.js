@@ -6,6 +6,7 @@ createApp({
       activeChat: 0,
       mainUser: 'Sofia',
       mainAvatar: "./img/avatar_4.png",
+      newMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -169,7 +170,6 @@ createApp({
                 ],
             }
         ],
-        newText: ''
       }
     },
     methods:{
@@ -177,22 +177,24 @@ createApp({
           this.activeChat = i;
       },
 
-      addItem: function () {
+      addMessage(){  
+        if(this.newMessage !== ''){
+            this.contacts[this.activeChat].messages.push(
+                {date: '10/01/2020 15:30:55',
+                message: this.newMessage,
+                status : 'sent'});
 
-        this.contacts[this.activeChat].messages.push({
-            date: '10/01/2020 15:30:55',
-            text: this.newText,
-            status: 'sent'
-        }),
-        this.newText = ""
-        setTimeout(() => {
-          this.contacts[this.activeChat].messages.push({
-              date: '10/01/2020 15:30:55',
-              newText: 'ok',
-              status: 'recived'
-          })
-      }, 1000);
-      }
+            setTimeout(this.respond,1000)    
+
+        }
+        this.newMessage = ''; 
+     },
+     respond(){this.contacts[this.activeChat].messages.push(
+        {date: '10/01/2020 15:30:55',
+        message: 'ok',
+        status : 'received'})
+      },
+      
   }
 
 }).mount('#app')
