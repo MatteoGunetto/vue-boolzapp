@@ -94,9 +94,9 @@ createApp({
             },
             {
                 name: 'Alessandro L.',
-                avatar: './img/avatar_7.png',
+                avatar: './img/avatar_9.png',
                 visible: true,
-                messages: [
+                messages: [ 
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Ricordati di chiamare la nonna',
@@ -200,12 +200,12 @@ createApp({
                         let ricerca = this.ricerca.toLowerCase();
                         this.contacts.forEach(person => {
                             person.visible = person.name.toLowerCase().includes(ricerca);
-                            if (person.visible=== false) {
+                            if (person.visible === false) {
                                 
                             }
             
             
-                            console.log(person);
+                            console.log(person.name.toLowerCase().includes(ricerca));
                         })
                     } 
                 }

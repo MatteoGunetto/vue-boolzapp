@@ -46,7 +46,7 @@
 
           <!-- contat's chats -->
           <div class="contacts">
-              <div class="contact" v-for="(contact, i) in contacts" @click="changeChat(i) " :class="activeChat === i ? 'active' : ''" :class="contacts[activeChat].visible ? '' : 'off'">
+              <div class="contact" v-for="(contact, i) in contacts" @click="changeChat(i) " :class="activeChat === i ? 'active' : ''" :class="contacts[activeChat].visible ? '' : 'off'" v-show="contact.visible">
                 
                   <img :src="contact.avatar" alt="">
                   <div class="name_contacts">
