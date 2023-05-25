@@ -7,6 +7,7 @@ createApp({
       mainUser: 'Sofia',
       mainAvatar: "./img/avatar_4.png",
       newMessage: '',
+      ricerca: "",
         contacts: [
             {
                 name: 'Michele',
@@ -173,28 +174,40 @@ createApp({
       }
     },
     methods:{
-      changeChat(i){
-          this.activeChat = i;
-      },
+        
+                    changeChat(i){
+                        this.activeChat = i;
+                    },
 
-      addMessage(){  
-        if(this.newMessage !== ''){
-            this.contacts[this.activeChat].messages.push(
-                {date: '10/01/2020 15:30:55',
-                message: this.newMessage,
-                status : 'sent'});
+                    addMessage(){  
+                        if(this.newMessage !== ''){
+                            this.contacts[this.activeChat].messages.push(
+                                {date: '10/01/2020 15:30:55',
+                                message: this.newMessage,
+                                status : 'sent'});
 
-            setTimeout(this.respond,1000)    
+                            setTimeout(this.respond,1000)    
 
-        }
-        this.newMessage = ''; 
-     },
-     respond(){this.contacts[this.activeChat].messages.push(
-        {date: '10/01/2020 15:30:55',
-        message: 'ok',
-        status : 'received'})
-      },
-      
-  }
+                        }
+                        this.newMessage = ''; 
+                    },
+                    respond(){this.contacts[this.activeChat].messages.push(
+                        {date: '10/01/2020 15:30:55',
+                        message: 'ok',
+                        status : 'received'})
+                    },
+                    research(){
+                        let ricerca = this.ricerca.toLowerCase();
+                        this.contacts.forEach(person => {
+                            person.visible = person.name.toLowerCase().includes(ricerca);
+                            if (person.visible=== false) {
+                                
+                            }
+            
+            
+                            console.log(person);
+                        })
+                    } 
+                }
 
 }).mount('#app')

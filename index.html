@@ -39,14 +39,15 @@
             <div id="search_contacts_chat">
               <div id="my_search_input">
                   <i class="fa-solid fa-magnifying-glass"></i>
-                  <input  type="text" placeholder="Cerca o inzia una nuova Chat">
+                  <input  type="text"  v-model="ricerca" v-on:keyup="research" placeholder="Cerca o inzia una nuova Chat">
               </div>
 
           </div>
 
           <!-- contat's chats -->
           <div class="contacts">
-              <div class="contact" v-for="(contact, i) in contacts" @click="changeChat(i)">
+              <div class="contact" v-for="(contact, i) in contacts" @click="changeChat(i) " :class="activeChat === i ? 'active' : ''" :class="contacts[activeChat].visible ? '' : 'off'">
+                
                   <img :src="contact.avatar" alt="">
                   <div class="name_contacts">
                       <h4>{{contact.name}}</h4>
@@ -154,7 +155,7 @@
             
             </section>
             <section id="chat">
-              <div  v-for="(message, index) in contacts[activeChat].messages" :class="(message.status === 'sent') ? 'message sent': 'message received'">
+              <div  v-for="(message, i) in contacts[activeChat].messages" :class="(message.status === 'sent') ? 'message sent': 'message received'">
                 
                 <p class="text_message">{{message.message}}</p>
                 <div class="time">{{message.date}}</div>
