@@ -146,12 +146,13 @@ main > #chat {
   flex-direction: column;
 }
 .message.sent {
-  background-color: #ffffff;
+  background-color: #d5f9ba;
+  float: right;
   clear: right;
 }
 .message.received {
-  float: right;
-  background-color: #d5f9ba ;
+  clear: right;
+  background-color:  #ffffff;
 }
 .text_message {
   width: 100%;
