@@ -174,38 +174,36 @@ createApp({
       }
     },
     methods:{
-        
+                        // --------SELEZIONE CHAT ATTIVA---------------------
                     changeChat(i){
                         this.activeChat = i;
                     },
-
+                        // ---------------------STAMPA MESSAGGI ---------------
                     addMessage(){  
                         if(this.newMessage !== ''){
                             this.contacts[this.activeChat].messages.push(
                                 {date: '10/01/2020 15:30:55',
                                 message: this.newMessage,
                                 status : 'sent'});
-
+                        // ------------SET TEMPO DI RISPOSTA BOT--------------
                             setTimeout(this.respond,1000)    
 
                         }
                         this.newMessage = ''; 
                     },
+                        //----------RISPOSTA AUTOMATICA---------------------- 
                     respond(){this.contacts[this.activeChat].messages.push(
                         {date: '10/01/2020 15:30:55',
-                        message: 'ok',
+                        message: 'OK!',
                         status : 'received'})
                     },
+                        //--------FUNZIONE RICERCA------- 
                     research(){
+                        // -----TOLOWERCASE set minuscolo----------
                         let ricerca = this.ricerca.toLowerCase();
                         this.contacts.forEach(person => {
+                        // -----restituzione valore booleano---------
                             person.visible = person.name.toLowerCase().includes(ricerca);
-                            if (person.visible === false) {
-                                
-                            }
-            
-            
-                            console.log(person.name.toLowerCase().includes(ricerca));
                         })
                     } 
                 }
